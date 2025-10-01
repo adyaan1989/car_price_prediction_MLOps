@@ -1,0 +1,24 @@
+COLUMNS:
+  make: object 
+  model: object
+  year: int64  
+  mileage: int64  
+  engine_hp: int64  
+  transmission: object 
+  fuel_type: object
+  drivetrain: object
+  body_type: object
+  exterior_color: object
+  interior_color: object
+  owner_count: int64
+  accident_history: object
+  seller_type: object
+  condition: object 
+  trim: object
+  vehicle_age: int64
+  mileage_per_year: float64
+  brand_popularity: float64
+  price: float64
+
+TARGET_COLUMN:  
+  name: price

@@ -1,26 +1,16 @@
 # car price prediction MLOps
 
- create the template.py
- 
-## Workflows to be used after the creation of the templates
-
-1. Update config/config.yaml
-2. Update schema.yaml
-3. Update params.yaml
-4. Update the src/winequality/entity/__init__.py
-5. Update the src/config/configuration.py
-6. Update the src/components (multiple py files with steps)
-7. Update the src/pipeline (multiple py files with steps) 
-8. Update the main.py
-9. Update the app.py
-
-# Steps for running configuration of the application 
-
 Clone the repository
 
 ```bash
 clone the git repo
 ```
+
+# Step create the template.py
+ 
+
+# Steps for running configuration of the application 
+
 
 ### STEP 01 - Create a conda environment after opening the repository
 
@@ -39,6 +29,24 @@ python.exe -m pip install --upgrade pip
 ```bash
 pip install -r requirements.txt
 ```
+
+### step 03 create the logger carsales/src/logging/__init__.py
+
+### Step 04 update the carsales/src/unitls/common.py  (e.g. read_yaml and create_directories)
+
+
+## Workflows to be used after the creation of the templates
+
+1. Update config/config.yaml
+2. Update schema.yaml (updation once)
+3. Update params.yaml (updation once)
+4. Update the src/carsales/entity/__init__.py
+5. Update the src/carsales/constants/__init__.py (updation once)
+6. Update the src/carsales/config/configuration.py
+6. Update the src/components (multiple py files with steps)
+7. Update the src/pipeline (multiple py files with steps) 
+8. Update the main.py
+9. Update the app.py
 
 
 ```bash

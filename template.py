@@ -4,7 +4,7 @@ from pathlib import Path
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 logger = logging.getLogger(__name__)
 
-project_name = "winequality"
+project_name = "carsales"
 base_dir = Path.cwd()
 
 list_of_files = [

@@ -1,0 +1,15 @@
+dataStore_root: dataStore
+
+data_ingestion:
+  root_dir: dataStore/data_ingestion
+  #source_url: https://github.com/adyaan1989/datasetsforProjects/raw/master/winequality.zip
+  source_url: https://github.com/adyaan1989/datasets/raw/master/vehicle_sales.zip
+  local_data_file: dataStore/data_ingestion/data.zip
+  unzip_dir: dataStore/data_ingestion
+
+# data validation root
+data_validation:
+  root_dir: dataStore/data_validation
+  unzip_data_dir: dataStore/data_ingestion/vehicle_sales.csv
+  STATUS_FILE: dataStore/data_validation/status.txt
+
