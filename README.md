@@ -80,16 +80,9 @@ os.environ["MLFLOW_TRACKING_PASSWORD"]="your-access-token-here"
 
 Run this on the git Bash to export as env variables:
 
-```bash
-
-export MLFLOW_TRACKING_URI=https://dagshub.com/singh.shanu1988/End_to_End_winequality.mlflow \
-
-export MLFLOW_TRACKING_USERNAME=singh.shanu1988 \
-
-export MLFLOW_TRACKING_PASSWORD=85d3b3428bfdf23ee7d518a37c50b190e4e54914 \
-
-python script.py
-```
+### Add the .env file
+MLFLOW_TRACKING_USERNAME="username-here"
+MLFLOW_TRACKING_PASSWORD="your-access-token-here"
 
 
 

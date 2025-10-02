@@ -59,14 +59,11 @@ class ConfigurationManager:
     def get_data_transformation_config(self) -> DataTransformationConfig:
 
         config = self.config.data_transformation
-        schema = self.schema
-
-        numerical_features = schema["numerical_features"]  # now exists
-        categorical_features = schema["categorical_features"]
-        outlier_features = schema.get("outlier_features", [])
-        drop_columns = schema.get("drop_columns", [])
-        
-       
+        numerical_features = self.schema.numerical_features
+        categorical_features = self.schema.categorical_features
+        outlier_features = self.schema.outlier_features
+        drop_columns = self.schema.drop_columns
+      
 
         create_directories([config.root_dir])
 

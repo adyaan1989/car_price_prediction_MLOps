@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Web App</title>
+        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+<!--                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>-->
+<!--                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>-->
+<!--                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li>-->
+<!--                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('static/assets/img/wine.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Car Price Prediction (USD) </h1>
+                            <span class="subheading">A Car Price Prediction Web App</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+
+           <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v9 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="static/css2/nunito-font.css">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="static/css2/style.css"/>
+</head>
+<body class="form-v9">
+	<div class="page-content">
+		<div class="form-v9-content" style="background-image: url('static/assets/img/form-v9.jpg')">
+			<form class="form-detail" action="/predict" method="post">
+				<h2>Please Fill The Information</h2>
+				<div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="make">Make:</label>
+                        <select name="make" id="make" class="input-text" required>
+                            <option value="">-- Select Make --</option>
+                            <option value="Ram">Ram</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Ford">Ford</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Dodge">Dodge</option>
+                            <option value="Acura">Acura</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="GMC">GMC</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Land Rover">Land Rover</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Chrysler">Chrysler</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Subaru">Subaru</option>
+                            <option value="Lexus">Lexus</option>
+                            <option value="Volvo">Volvo</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Mazda">Mazda</option>
+                            <option value="Cadillac">Cadillac</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                        </select>
+                    </div>
+
+
+					<!-- <div class="form-row">
+                        <label for="model"> Model:</label>
+						<input type="text" name="model" id="model" class="input-text" placeholder="model" required>
+					</div> -->
+
+                    <div class="form-row">
+                        <label for="model">Model:</label>
+                        <input list="modelList" name="model" id="model" class="input-text" placeholder="model" required>
+                        <datalist id="modelList">
+                            <option value="2500">
+                            <option value="Panamera">
+                            <option value="A4">
+                            <option value="1500">
+                            <option value="Focus">
+                            <option value="5 Series">
+                            <option value="Charger">
+                            <option value="MDX">
+                            <option value="Altima">
+                            <option value="Jetta">
+                            <option value="Escape">
+                            <option value="Terrain">
+                            <option value="Grand Cherokee">
+                            <option value="Santa Fe">
+                            <option value="Forte">
+                            <option value="Sonata">
+                            <option value="Discovery">
+                            <option value="911">
+                            <option value="Q7">
+                            <option value="C-Class">
+                            <option value="Model X">
+                            <option value="300">
+                            <option value="Camry">
+                            <option value="Defender">
+                            <option value="RAV4">
+                            <option value="Optima">
+                            <option value="Crosstrek">
+                            <option value="GX">
+                            <option value="Impreza">
+                            <option value="V60">
+                            <option value="Acadia">
+                            <option value="Pacifica">
+                            <option value="Passat">
+                            <option value="3 Series">
+                            <option value="Compass">
+                            <option value="Accord">
+                            <option value="Mazda6">
+                            <option value="ES">
+                            <option value="Elantra">
+                            <option value="Sportage">
+                            <option value="Range Rover">
+                            <option value="Cherokee">
+                            <option value="M3">
+                            <option value="Corolla">
+                            <option value="3500">
+                            <option value="Outback">
+                            <option value="RDX">
+                            <option value="CT5">
+                            <option value="Tiguan">
+                            <option value="Model Y">
+                            <option value="S60">
+                            <option value="Camaro">
+                            <option value="Malibu">
+                            <option value="Wrangler">
+                            <option value="XT5">
+                            <option value="XC60">
+                            <option value="TLX">
+                            <option value="Tacoma">
+                            <option value="Equinox">
+                            <option value="Titan">
+                            <option value="R8">
+                            <option value="E-Class">
+                            <option value="CX-5">
+                            <option value="RX">
+                            <option value="Sorento">
+                            <option value="NX">
+                            <option value="Lyriq">
+                            <option value="Mustang">
+                            <option value="Mazda3">
+                            <option value="Yukon">
+                            <option value="Model S">
+                            <option value="Telluride">
+                            <option value="Macan">
+                            <option value="S-Class">
+                            <option value="Challenger">
+                            <option value="Odyssey">
+                            <option value="Model 3">
+                            <option value="IS">
+                            <option value="Highlander">
+                            <option value="Silverado">
+                            <option value="Sierra">
+                            <option value="Integra">
+                            <option value="F-150">
+                            <option value="CX-9">
+                            <option value="Pathfinder">
+                            <option value="Tucson">
+                            <option value="Golf">
+                            <option value="Tahoe">
+                            <option value="Escalade">
+                            <option value="Sentra">
+                            <option value="Q5">
+                            <option value="Cayenne">
+                            <option value="CR-V">
+                            <option value="Durango">
+                            <option value="Forester">
+                            <option value="A6">
+                            <option value="Explorer">
+                            <option value="Atlas">
+                            <option value="XC90">
+                            <option value="X5">
+                            <option value="Rogue">
+                            <option value="Civic">
+                            <option value="X3">
+                            <option value="GLE">
+                            <option value="Pilot">
+                        </datalist>
+                        </div>
+				</div>
+
+
+				<div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="year"> Year:</label>
+						<input type="text" name="year" id="year" class="input-text" placeholder="year" required>
+					</div>
+
+
+                    <div class="form-row">
+                        <label for="mileage"> Mileage:</label>
+						<input type="text" name="mileage" id="mileage" class="input-text" placeholder="mileage" required>
+					</div>
+
+				</div>
+
+
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="engine_hp"> Engine_Hp:</label>
+						<input type="text" name="engine_hp" id="engine_hp" class="input-text" placeholder="engine_hp" required>
+					</div>
+
+                    <div class="form-row">
+                        <label for="transmission"> Transmission:</label>
+						<select name="transmission" id="transmission" class="input-text" required>
+                            <option value="">-- Select Transmission --</option>
+                            <option value="Automatic">Automatic</option>
+                            <option value="Manual">Manual</option>
+                        </select>
+
+					</div>
+
+				</div>
+
+
+                <div class="form-row">
+                    <label for="fuel_type">Fuel Type:</label>
+                    <select name="fuel_type" id="fuel_type" class="input-text" required>
+                        <option value="">-- Select Fuel Type --</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Gasoline">Gasoline</option>
+                        <option value="Diesel">Diesel</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="drivetrain">Drivetrain:</label>
+                    <select name="drivetrain" id="drivetrain" class="input-text" required>
+                        <option value="">-- Select Drivetrain --</option>
+                        <option value="AWD">AWD</option>
+                        <option value="RWD">RWD</option>
+                        <option value="FWD">FWD</option>
+                    </select>
+                </div>
+
+
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="body_type"> Body Type:</label>
+						<input type="text" name="body_type" id="body_type" class="input-text" placeholder="body_type" required>
+					</div>
+
+                    <div class="form-row">
+                        <label for="exterior_color"> Exterior Color:</label>
+						<input type="text" name="exterior_color" id="exterior_color" class="input-text" placeholder="exterior_color" required>
+					</div>
+
+				</div>
+
+
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="interior_color"> Interior Color:</label>
+						<input type="text" name="interior_color" id="interior_color" class="input-text" placeholder="interior_color" required>
+					</div>
+
+
+				</div>
+
+
+                
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="owner_count"> Owner Count:</label>
+						<input type="text" name="owner_count" id="owner_count" class="input-text" placeholder="owner_count" required>
+					</div>
+
+
+				</div>
+
+                
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="accident_history"> Interior Color:</label>
+						<input type="text" name="accident_history" id="accident_history" class="input-text" placeholder="accident_history" required>
+					</div>
+
+
+				</div>
+
+                
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="seller_type"> Seller Type:</label>
+						<input type="text" name="seller_type" id="seller_type" class="input-text" placeholder="seller_type" required>
+					</div>
+
+
+				</div>
+
+                
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="condition"> Condition:</label>
+						<input type="text" name="condition" id="condition" class="input-text" placeholder="condition" required>
+					</div>
+
+
+				</div>
+
+
+                
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="trim"> Trim:</label>
+						<input type="text" name="trim" id="trim" class="input-text" placeholder="trim" required>
+					</div>
+
+
+				</div>
+
+
+                
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="vehicle_age"> Vehicle Age:</label>
+						<input type="text" name="vehicle_age" id="vehicle_age" class="input-text" placeholder="vehicle_age" required>
+					</div>
+
+
+				</div>
+
+
+
+                
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="mileage_per_year"> Mileage Per Year:</label>
+						<input type="text" name="mileage_per_year" id="mileage_per_year" class="input-text" placeholder="mileage_per_year" required>
+					</div>
+
+
+				</div>
+
+
+
+                
+                <div class="form-row-total">
+
+                    <div class="form-row">
+                        <label for="brand_popularity"> Brand Popularity:</label>
+						<input type="text" name="brand_popularity" id="brand_popularity" class="input-text" placeholder="brand_popularity" required>
+					</div>
+
+
+				</div>
+
+
+
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Predict">
+				</div>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+        </div>
+
+
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com/in/adyaan.singh/">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://github.com/adyaan1989">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="small text-center text-muted fst-italic"></div>
+                        <div class="small text-center text-muted fst-italic"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="static/js/scripts.js"></script>
+    </body>
+</html>
