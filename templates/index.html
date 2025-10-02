@@ -71,6 +71,7 @@
 				<h2>Please Fill The Information</h2>
 				<div class="form-row-total">
 
+                    <!-- Make Dropdown -->
                     <div class="form-row">
                         <label for="make">Make:</label>
                         <select name="make" id="make" class="input-text" required>
@@ -103,124 +104,67 @@
                         </select>
                     </div>
 
-
-					<!-- <div class="form-row">
-                        <label for="model"> Model:</label>
-						<input type="text" name="model" id="model" class="input-text" placeholder="model" required>
-					</div> -->
-
+                    
                     <div class="form-row">
                         <label for="model">Model:</label>
-                        <input list="modelList" name="model" id="model" class="input-text" placeholder="model" required>
-                        <datalist id="modelList">
-                            <option value="2500">
-                            <option value="Panamera">
-                            <option value="A4">
-                            <option value="1500">
-                            <option value="Focus">
-                            <option value="5 Series">
-                            <option value="Charger">
-                            <option value="MDX">
-                            <option value="Altima">
-                            <option value="Jetta">
-                            <option value="Escape">
-                            <option value="Terrain">
-                            <option value="Grand Cherokee">
-                            <option value="Santa Fe">
-                            <option value="Forte">
-                            <option value="Sonata">
-                            <option value="Discovery">
-                            <option value="911">
-                            <option value="Q7">
-                            <option value="C-Class">
-                            <option value="Model X">
-                            <option value="300">
-                            <option value="Camry">
-                            <option value="Defender">
-                            <option value="RAV4">
-                            <option value="Optima">
-                            <option value="Crosstrek">
-                            <option value="GX">
-                            <option value="Impreza">
-                            <option value="V60">
-                            <option value="Acadia">
-                            <option value="Pacifica">
-                            <option value="Passat">
-                            <option value="3 Series">
-                            <option value="Compass">
-                            <option value="Accord">
-                            <option value="Mazda6">
-                            <option value="ES">
-                            <option value="Elantra">
-                            <option value="Sportage">
-                            <option value="Range Rover">
-                            <option value="Cherokee">
-                            <option value="M3">
-                            <option value="Corolla">
-                            <option value="3500">
-                            <option value="Outback">
-                            <option value="RDX">
-                            <option value="CT5">
-                            <option value="Tiguan">
-                            <option value="Model Y">
-                            <option value="S60">
-                            <option value="Camaro">
-                            <option value="Malibu">
-                            <option value="Wrangler">
-                            <option value="XT5">
-                            <option value="XC60">
-                            <option value="TLX">
-                            <option value="Tacoma">
-                            <option value="Equinox">
-                            <option value="Titan">
-                            <option value="R8">
-                            <option value="E-Class">
-                            <option value="CX-5">
-                            <option value="RX">
-                            <option value="Sorento">
-                            <option value="NX">
-                            <option value="Lyriq">
-                            <option value="Mustang">
-                            <option value="Mazda3">
-                            <option value="Yukon">
-                            <option value="Model S">
-                            <option value="Telluride">
-                            <option value="Macan">
-                            <option value="S-Class">
-                            <option value="Challenger">
-                            <option value="Odyssey">
-                            <option value="Model 3">
-                            <option value="IS">
-                            <option value="Highlander">
-                            <option value="Silverado">
-                            <option value="Sierra">
-                            <option value="Integra">
-                            <option value="F-150">
-                            <option value="CX-9">
-                            <option value="Pathfinder">
-                            <option value="Tucson">
-                            <option value="Golf">
-                            <option value="Tahoe">
-                            <option value="Escalade">
-                            <option value="Sentra">
-                            <option value="Q5">
-                            <option value="Cayenne">
-                            <option value="CR-V">
-                            <option value="Durango">
-                            <option value="Forester">
-                            <option value="A6">
-                            <option value="Explorer">
-                            <option value="Atlas">
-                            <option value="XC90">
-                            <option value="X5">
-                            <option value="Rogue">
-                            <option value="Civic">
-                            <option value="X3">
-                            <option value="GLE">
-                            <option value="Pilot">
-                        </datalist>
-                        </div>
-				</div>
+                        <select name="model" id="model" class="input-text" required>
+                            <option value="">-- Select Model --</option>
+                        </select>
+                    </div>
+
+                    <!-- JavaScript to Filter Models Based on Make -->
+                    <script>
+                        const makeToModels = {
+                            "Acura": ["MDX", "RDX", "TLX", "Integra"],
+                            "Audi": ["A4", "Q7", "R8", "Q5", "A6"],
+                            "BMW": ["5 Series", "3 Series", "M3", "X5", "X3"],
+                            "Cadillac": ["CT5", "XT5", "Lyriq", "Escalade"],
+                            "Chevrolet": ["Camaro", "Malibu", "Equinox", "Silverado", "Tahoe"],
+                            "Chrysler": ["300", "Pacifica"],
+                            "Dodge": ["Charger", "Challenger", "Durango"],
+                            "Ford": ["Focus", "Escape", "Mustang", "F-150", "Explorer"],
+                            "GMC": ["Terrain", "Acadia", "Yukon", "Sierra"],
+                            "Honda": ["Accord", "Odyssey", "CR-V", "Civic", "Pilot"],
+                            "Hyundai": ["Santa Fe", "Sonata", "Elantra", "Tucson"],
+                            "Jeep": ["Grand Cherokee", "Compass", "Cherokee", "Wrangler"],
+                            "Kia": ["Forte", "Optima", "Sportage", "Sorento", "Telluride"],
+                            "Land Rover": ["Discovery", "Defender", "Range Rover"],
+                            "Lexus": ["GX", "ES", "RX", "NX", "IS"],
+                            "Mazda": ["Mazda6", "CX-5", "Mazda3", "CX-9"],
+                            "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLE"],
+                            "Nissan": ["Altima", "Titan", "Pathfinder", "Sentra", "Rogue"],
+                            "Porsche": ["Panamera", "911", "Macan", "Cayenne"],
+                            "Ram": ["2500", "1500", "3500"],
+                            "Subaru": ["Crosstrek", "Impreza", "Outback", "Forester"],
+                            "Tesla": ["Model X", "Model Y", "Model S", "Model 3"],
+                            "Toyota": ["Camry", "RAV4", "Corolla", "Tacoma", "Highlander"],
+                            "Volkswagen": ["Jetta", "Passat", "Tiguan", "Golf", "Atlas"],
+                            "Volvo": ["V60", "S60", "XC60", "XC90"]
+                        };
+
+                        const makeSelect = document.getElementById('make');
+                        const modelSelect = document.getElementById('model');
+
+                        makeSelect.addEventListener('change', function () {
+                            const selectedMake = this.value;
+                            const models = makeToModels[selectedMake] || [];
+
+                            // Clear existing options
+                            modelSelect.innerHTML = '<option value="">-- Select Model --</option>';
+
+                            // Add new model options
+                            models.forEach(function (model) {
+                                const option = document.createElement('option');
+                                option.value = model;
+                                option.textContent = model;
+                                modelSelect.appendChild(option);
+                            });
+
+                            // If no models available, disable the model dropdown
+                            modelSelect.disabled = models.length === 0;
+                        });
+                    </script>
+
 
 
 				<div class="form-row-total">
@@ -281,16 +225,34 @@
 
 
                 <div class="form-row-total">
+                    <div class="form-row">
+                        <label for="body_type">Body Type:</label>
+                        <select name="body_type" id="body_type" class="input-text" required>
+                            <option value="" disabled selected>Select body type</option>
+                            <option value="Pickup Truck">Pickup Truck</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Coupe">Coupe</option>
+                            <option value="Minivan">Minivan</option>
+                            <option value="Wagon">Wagon</option>
+                            <option value="Hatchback">Hatchback</option>
+                        </select>
+                    </div>
+
+
 
                     <div class="form-row">
-                        <label for="body_type"> Body Type:</label>
-						<input type="text" name="body_type" id="body_type" class="input-text" placeholder="body_type" required>
-					</div>
-
-                    <div class="form-row">
-                        <label for="exterior_color"> Exterior Color:</label>
-						<input type="text" name="exterior_color" id="exterior_color" class="input-text" placeholder="exterior_color" required>
-					</div>
+                        <label for="exterior_color">Exterior Color:</label>
+                        <select name="exterior_color" id="exterior_color" class="input-text" required>
+                            <option value="" disabled selected>Select exterior color</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Black">Black</option>
+                            <option value="Red">Red</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Blue">Blue</option>
+                            <option value="White">White</option>
+                        </select>
+                    </div>
 
 				</div>
 
@@ -298,11 +260,15 @@
                 <div class="form-row-total">
 
                     <div class="form-row">
-                        <label for="interior_color"> Interior Color:</label>
-						<input type="text" name="interior_color" id="interior_color" class="input-text" placeholder="interior_color" required>
-					</div>
-
-
+                        <label for="interior_color">Interior Color:</label>
+                        <select name="interior_color" id="interior_color" class="input-text" required>
+                            <option value="" disabled selected>Select interior color</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Beige">Beige</option>
+                            <option value="Black">Black</option>
+                        </select>
+                    </div>
 				</div>
 
 
@@ -320,23 +286,28 @@
                 
                 <div class="form-row-total">
 
+                   
                     <div class="form-row">
-                        <label for="accident_history"> Interior Color:</label>
-						<input type="text" name="accident_history" id="accident_history" class="input-text" placeholder="accident_history" required>
-					</div>
-
-
+                        <label for="accident_history">Accident History:</label>
+                        <select name="accident_history" id="accident_history" class="input-text">
+                            <option value="">-- None / Not Available --</option>
+                            <option value="Minor">Minor</option>
+                            <option value="Major">Major</option>
+                        </select>
+                    </div>
 				</div>
 
                 
                 <div class="form-row-total">
 
                     <div class="form-row">
-                        <label for="seller_type"> Seller Type:</label>
-						<input type="text" name="seller_type" id="seller_type" class="input-text" placeholder="seller_type" required>
-					</div>
-
-
+                        <label for="seller_type">Seller Type:</label>
+                        <select name="seller_type" id="seller_type" class="input-text" required>
+                            <option value="" disabled selected>Select seller type</option>
+                            <option value="Dealer">Dealer</option>
+                            <option value="Private">Private</option>
+                        </select>
+                    </div>
 				</div>
 
                 
@@ -344,22 +315,31 @@
 
                     <div class="form-row">
                         <label for="condition"> Condition:</label>
-						<input type="text" name="condition" id="condition" class="input-text" placeholder="condition" required>
-					</div>
-
-
+						<select name="condition" id="condition" class="input-text" required>
+                            <option value="" disabled selected>Condition</option>
+                            <option value="Good">Good</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Excellent">Excellent</option>
+                       </select>
+                    </div>
 				</div>
 
 
                 
                 <div class="form-row-total">
-
+          
                     <div class="form-row">
-                        <label for="trim"> Trim:</label>
-						<input type="text" name="trim" id="trim" class="input-text" placeholder="trim" required>
-					</div>
-
-
+                        <label for="trim">Trim:</label>
+                        <select name="trim" id="trim" class="input-text" required>
+                            <option value="" disabled selected>Select trim</option>
+                            <option value="EX">EX</option>
+                            <option value="Touring">Touring</option>
+                            <option value="LX">LX</option>
+                            <option value="Limited">Limited</option>
+                            <option value="Base">Base</option>
+                            <option value="Sport">Sport</option>
+                        </select>
+                    </div>
 				</div>
 
 
