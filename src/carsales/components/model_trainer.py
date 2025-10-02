@@ -16,11 +16,8 @@ class ModelTrainer:
 
     def train(self):
         x_train = pd.read_csv(self.config.x_train_data_path)
-        y_train = pd.read_csv(self.config.x_train_data_path)
-        x_test = pd.read_csv(self.config.x_test_data_path)
-        y_test = pd.read_csv(self.config.y_test_data_path)
+        y_train = pd.read_csv(self.config.y_train_data_path)
         
-
 
         lr = ElasticNet(alpha=self.config.alpha, l1_ratio=self.config.l1_ratio, random_state=42)
         lr.fit(x_train, y_train)

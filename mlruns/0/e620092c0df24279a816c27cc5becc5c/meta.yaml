@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/ML%20Project%20Backup/Data%20Science/Git-Upload-Projects/car_price_prediction_MLOps/mlruns/0/e620092c0df24279a816c27cc5becc5c/artifacts
+end_time: 1759389636574
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e620092c0df24279a816c27cc5becc5c
+run_name: Model Evaluation
+run_uuid: e620092c0df24279a816c27cc5becc5c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1759389636464
+status: 4
+tags: []
+user_id: kavya

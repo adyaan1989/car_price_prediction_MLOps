@@ -18,12 +18,19 @@ data_transformation:
   root_dir: dataStore/data_transformation
   data_path: dataStore/data_ingestion/vehicle_sales.csv
   
-
+# model trainer path
 model_trainer:
   root_dir: dataStore/model_trainer
   x_train_data_path: dataStore/data_transformation/X_train.csv
   y_train_data_path: dataStore/data_transformation/y_train.csv
+  model_name: model.joblib
+
+### Model evaluation path
+model_evaluation:
+  root_dir: dataStore/model_evaluation
   x_test_data_path: dataStore/data_transformation/X_test.csv
   y_test_data_path: dataStore/data_transformation/y_test.csv
-  
-  model_name: model.joblib
+  model_path: dataStore/model_trainer/model.joblib
+  metric_file_name: dataStore/model_evaluation/metrics.json
+
+

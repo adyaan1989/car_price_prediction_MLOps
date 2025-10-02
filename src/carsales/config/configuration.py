@@ -4,6 +4,7 @@ from carsales.entity.config_entity import (DataIngestionConfig,
                              DataValidationConfig,
                              DataTransformationConfig,
                              ModelTrainerConfig,
+                             ModelEvaluationConfig,
                              )
 
 
@@ -65,8 +66,7 @@ class ConfigurationManager:
         outlier_features = schema.get("outlier_features", [])
         drop_columns = schema.get("drop_columns", [])
         
-        # # Prefer the explicit target column key; pick one:
-        target_column = schema.get("TARGET_COLUMN", {}).get("name") or schema.get("target_column")
+       
 
         create_directories([config.root_dir])
 
@@ -77,7 +77,7 @@ class ConfigurationManager:
             categorical_features=categorical_features,
             outlier_features=outlier_features,
             drop_columns=drop_columns,
-            target_column=target_column,
+            
         )
 
         return data_transformation_config
@@ -94,8 +94,6 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             x_train_data_path=config.x_train_data_path,
             y_train_data_path=config.y_train_data_path,
-            x_test_data_path=config.x_test_data_path,
-            y_test_data_path=config.y_test_data_path,
             model_name=config.model_name,
             alpha=params.alpha,
             l1_ratio=params.l1_ratio,
@@ -104,4 +102,19 @@ class ConfigurationManager:
         return model_trainer_config
     
 
-    
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        params = self.params.ElasticNet
+        
+        create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            x_test_data_path=config.x_test_data_path,
+            y_test_data_path=config.y_test_data_path,
+            model_path=config.model_path,
+            all_params=params,
+            metric_file_name=config.metric_file_name,
+            mlflow_uri="https://dagshub.com/adyaan1989/car_price_prediction_MLOps.mlflow",
+        )
+        return model_evaluation_config
