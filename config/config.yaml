@@ -13,3 +13,7 @@ data_validation:
   unzip_data_dir: dataStore/data_ingestion/vehicle_sales.csv
   STATUS_FILE: dataStore/data_validation/status.txt
 
+# data transformation
+data_transformation:
+  root_dir: dataStore/data_transformation
+  data_path: dataStore/data_ingestion/vehicle_sales.csv

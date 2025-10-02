@@ -22,3 +22,40 @@ COLUMNS:
 
 TARGET_COLUMN:  
   name: price
+
+
+numerical_features:
+  - year 
+  - mileage  
+  - engine_hp
+  - owner_count
+  - vehicle_age
+  - mileage_per_year
+  - brand_popularity
+
+categorical_features:
+  - make 
+  - model
+  - transmission 
+  - fuel_type
+  - drivetrain
+  - body_type
+  - exterior_color
+  - interior_color
+  - accident_history
+  - seller_type
+  - condition 
+  - trim
+
+drop_columns:
+  - accident_history
+  - engine_hp
+
+outlier_features:
+  - mileage
+  - mileage_per_year
+
+target_column: Cost
+
+
+

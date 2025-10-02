@@ -3,7 +3,7 @@ import urllib.request as request
 import zipfile
 from carsales.logging import logger
 from carsales.utils.common import get_size
-from carsales.entity import DataIngestionConfig
+from carsales.entity.config_entity import DataIngestionConfig
 from pathlib import Path
 
 

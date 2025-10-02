@@ -1,6 +1,9 @@
 from carsales.constants import *
 from carsales.utils.common import read_yaml, create_directories
-from carsales.entity import (DataIngestionConfig, DataValidationConfig)
+from carsales.entity.config_entity import (DataIngestionConfig, 
+                             DataValidationConfig,
+                             DataTransformationConfig,
+                             )
 
 
 class ConfigurationManager:
@@ -48,3 +51,34 @@ class ConfigurationManager:
         )
 
         return data_validation_config
+    
+
+    # data transformation
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+
+        config = self.config.data_transformation
+        schema = self.schema
+
+        numerical_features = schema["numerical_features"]  # now exists
+        categorical_features = schema["categorical_features"]
+        outlier_features = schema.get("outlier_features", [])
+        drop_columns = schema.get("drop_columns", [])
+        
+        # Prefer the explicit target column key; pick one:
+        target_column = schema.get("TARGET_COLUMN", {}).get("name") or schema.get("target_column")
+
+        create_directories([config.root_dir])
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            numerical_features=numerical_features,
+            categorical_features=categorical_features,
+            outlier_features=outlier_features,
+            drop_columns=drop_columns,
+            target_column=target_column,
+        )
+
+        return data_transformation_config
+
+    

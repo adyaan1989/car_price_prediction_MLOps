@@ -3,7 +3,7 @@ import urllib.request as request
 import zipfile
 from carsales.logging import logger
 from carsales.utils.common import get_size
-from carsales.entity import DataValidationConfig
+from carsales.entity.config_entity import DataValidationConfig
 from pathlib import Path
 import pandas as pd
 
