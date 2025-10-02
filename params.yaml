@@ -1,5 +1,4 @@
-model:
-  learning_rate: 0.01
-  n_estimators: 100
-  max_depth: 5
+ElasticNet:
+  alpha: 0.2
+  l1_ratio: 0.5
 

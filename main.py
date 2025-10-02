@@ -2,6 +2,7 @@ from carsales.logging import logger
 from carsales.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from carsales.pipeline.stage_02_data_validation import DataValidationPipeline
 from carsales.pipeline.stage_03_data_transformation import DataTransformationPipeline
+from carsales.pipeline.stage_04_model_trainer import ModelTrainerPipeline
 
 
 # data Ingestion state
@@ -39,4 +40,18 @@ try:
 except Exception as e:
         logger.exception(e)
         raise e
+
+
+# Model trainer stage
+
+STAGE_NAME = "Model Training stage"
+try:
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
+   data_trainer_pipeline = ModelTrainerPipeline()
+   data_trainer_pipeline.main()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+        logger.exception(e)
+        raise e
+
 

@@ -40,7 +40,7 @@ pip install -r requirements.txt
 1. Update config/config.yaml
 2. Update schema.yaml (updation once)
 3. Update params.yaml (updation once)
-4. Update the src/carsales/entity/__init__.py
+4. Update the src/carsales/entity/config_entity.py
 5. Update the src/carsales/constants/__init__.py (updation once)
 6. Update the src/carsales/config/configuration.py
 6. Update the src/components (multiple py files with steps)

@@ -28,3 +28,16 @@ class DataTransformationConfig:
     outlier_features: List[str]
     drop_columns: List[str]
     target_column: str
+
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    root_dir: Path
+    x_train_data_path: Path
+    y_train_data_path: Path
+    x_test_data_path: Path
+    y_test_data_path: Path
+    model_name: str
+    alpha: float
+    l1_ratio: float
+    target_column: str 

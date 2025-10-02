@@ -3,6 +3,7 @@ from carsales.utils.common import read_yaml, create_directories
 from carsales.entity.config_entity import (DataIngestionConfig, 
                              DataValidationConfig,
                              DataTransformationConfig,
+                             ModelTrainerConfig,
                              )
 
 
@@ -64,7 +65,7 @@ class ConfigurationManager:
         outlier_features = schema.get("outlier_features", [])
         drop_columns = schema.get("drop_columns", [])
         
-        # Prefer the explicit target column key; pick one:
+        # # Prefer the explicit target column key; pick one:
         target_column = schema.get("TARGET_COLUMN", {}).get("name") or schema.get("target_column")
 
         create_directories([config.root_dir])
@@ -80,5 +81,27 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+    
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+        params = self.params.ElasticNet
+        schema = self.schema.TARGET_COLUMN
+
+        create_directories([config.root_dir])
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            x_train_data_path=config.x_train_data_path,
+            y_train_data_path=config.y_train_data_path,
+            x_test_data_path=config.x_test_data_path,
+            y_test_data_path=config.y_test_data_path,
+            model_name=config.model_name,
+            alpha=params.alpha,
+            l1_ratio=params.l1_ratio,
+            target_column=schema.name
+        )
+        return model_trainer_config
+    
 
     
