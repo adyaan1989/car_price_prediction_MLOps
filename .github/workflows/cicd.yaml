@@ -4,22 +4,25 @@ on:
   push:
     branches: [main]
 
+env:
+  AWS_REGION: ${{ secrets.REGION_NAME }}   # used by both jobs
+
 jobs:
   Continuous-Integration:
     runs-on: ubuntu-latest
     outputs:
-      image: ${{ steps.build-image.outputs.image }}
+      image: ${{ steps.build-image.outputs.image }}   # job output
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.REGION_NAME }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -37,28 +40,13 @@ jobs:
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       - name: Debug built image URI
-        run: echo "Built image: ${{ steps.build-image.outputs.image }}"
+        run: echo "Built image ${{ steps.build-image.outputs.image }}"
 
   Continuous-Deployment:
     needs: Continuous-Integration
-    runs-on: self-hosted
-
+    runs-on: self-hosted          # <<< change to self-hosted if you have your own runner
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.REGION_NAME }}
-
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Run Docker container from ECR image
+      - name: Deploy container
         run: |
-          echo "Deploying image: ${{ needs.Continuous-Integration.outputs.image }}"
-          docker run -d -p 8080:8080 ${{ needs.Continuous-Integration.outputs.image }}
+          echo "Deploying image ${{ needs.Continuous-Integration.outputs.image }}"
+          docker run -d --rm -p 8080:8080 ${{ needs.Continuous-Integration.outputs.image }}
