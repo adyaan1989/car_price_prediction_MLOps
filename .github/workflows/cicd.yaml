@@ -57,4 +57,5 @@ jobs:
 
       - name: Run Docker container from ECR image
         run: |
-          docker run -d -p 8080:8080 "${{ needs.Continuous-Integration.outputs.image }}"
+          echo "Image: ${{ needs.Continuous-Integration.outputs.image }}"
+          docker run -d -p 8080:8080 ${{ needs.Continuous-Integration.outputs.image }}
