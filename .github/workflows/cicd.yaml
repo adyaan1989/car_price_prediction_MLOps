@@ -44,7 +44,7 @@ jobs:
 
   Continuous-Deployment:
     needs: Continuous-Integration
-    runs-on: self-hosted          # <-- switch to 'self-hosted' if you run your own runner
+    runs-on: self-hosted
     steps:
       - name: Deploy container
         run: |
