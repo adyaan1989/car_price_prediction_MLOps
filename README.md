@@ -119,7 +119,7 @@ MLFLOW_TRACKING_PASSWORD="your-access-token-here"
 
 	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/winequality
+    - Save the URI: 646491289758.dkr.ecr.us-east-1.amazonaws.com/mlcarsalesproject
 
 	
 ## 4. Create EC2 machine (Ubuntu) 
@@ -146,7 +146,7 @@ MLFLOW_TRACKING_PASSWORD="your-access-token-here"
 # 6. Configure EC2 as self-hosted runner:
     setting>actions>runner>new self hosted runner> choose os> then run command one by one
 
-
+Save the URI: 646491289758.dkr.ecr.us-east-1.amazonaws.com/mlcarsalesproject
 # 7. Setup github secrets:
 
     AWS_ACCESS_KEY_ID=
@@ -155,9 +155,9 @@ MLFLOW_TRACKING_PASSWORD="your-access-token-here"
 
     AWS_REGION = us-east-1
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = demo>>  646491289758.dkr.ecr.us-east-1.amazonaws.com 
 
-    ECR_REPOSITORY_NAME = simple-app
+    ECR_REPOSITORY_NAME = mlcarsalesproject
 
 
 
