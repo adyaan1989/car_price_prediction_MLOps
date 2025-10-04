@@ -19,7 +19,7 @@ def training():
 
 
 # Prediction route
-@app.route('/predict/', methods=['POST', 'GET'])
+@app.route('/predict', methods=['POST', 'GET'])
 def predict():
     if request.method == 'POST':
         try:
