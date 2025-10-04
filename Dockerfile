@@ -1,17 +1,21 @@
 FROM python:3.10
 
+# Set working directory inside the container
 WORKDIR /app
 
+# Copy necessary files
 COPY requirements.txt .
 COPY setup.py .
 COPY README.md .
 COPY app.py .
-# If you have other source code in src/, copy it as well:
 COPY src/ ./src/
 
+# Install dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+# Expose the port your app runs on
 EXPOSE 8080
 
-CMD ["python", "src/carsales/app.py"]
+# Run your main application
+CMD ["python", "app.py"]
