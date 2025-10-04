@@ -17,5 +17,6 @@ RUN pip install -r requirements.txt
 # Expose the port your app runs on
 EXPOSE 8080
 
+COPY . .
 # Run your main application
 CMD ["python3", "app.py"]
