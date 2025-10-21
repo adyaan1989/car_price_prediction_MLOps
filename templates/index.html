@@ -5,17 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Web App</title>
+        <title>Car Price Prediction</title>
         <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="static/css/styles.css" rel="stylesheet" />
+        <link href="static/css2/nunito-font.css" rel="stylesheet" />
+        <link href="static/css2/style.css" rel="stylesheet" />
+    
     </head>
-    <body>
+    
+    
+    <body class="form-v9">
+        
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -50,181 +59,169 @@
 
 
         <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
+        <div class="page-content">
+            <div class="form-v9-content" style="background-image: url('static/assets/img/form-v9.jpg')">
+                <form class="form-detail" action="/predict" method="post">
+                    <h2>Please Fill The Information</h2>
+                    
+                    
+                    
+                    <!-- <div class="form-row-total"> -->
+                    <div class="form-row-total">        
+                        <div class="form-row">
+                            <label for="make">Make:</label>
+                            <select name="make" id="make" class="input-text" required>
+                                <option value="">-- Select Make --</option>
+                                <option value="Ram">Ram</option>
+                                <option value="Porsche">Porsche</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Ford">Ford</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Dodge">Dodge</option>
+                                <option value="Acura">Acura</option>
+                                <option value="Nissan">Nissan</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                                <option value="GMC">GMC</option>
+                                <option value="Jeep">Jeep</option>
+                                <option value="Hyundai">Hyundai</option>
+                                <option value="Kia">Kia</option>
+                                <option value="Land Rover">Land Rover</option>
+                                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                <option value="Tesla">Tesla</option>
+                                <option value="Chrysler">Chrysler</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Subaru">Subaru</option>
+                                <option value="Lexus">Lexus</option>
+                                <option value="Volvo">Volvo</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Mazda">Mazda</option>
+                                <option value="Cadillac">Cadillac</option>
+                                <option value="Chevrolet">Chevrolet</option>
+                            </select>
+                            </div>
+                        </div>    
+                        
+                        <div class="form-row">
+                            <label for="model">Model:</label>
+                            <select name="model" id="model" class="input-text" required>
+                                <option value="">-- Select Model --</option>
+                            </select>
+                        </div>
+                            
+                        
+                        <!-- JavaScript to Filter Models Based on Make -->
+                        <script>
+                            const makeToModels = {
+                                "Acura": ["MDX", "RDX", "TLX", "Integra"],
+                                "Audi": ["A4", "Q7", "R8", "Q5", "A6"],
+                                "BMW": ["5 Series", "3 Series", "M3", "X5", "X3"],
+                                "Cadillac": ["CT5", "XT5", "Lyriq", "Escalade"],
+                                "Chevrolet": ["Camaro", "Malibu", "Equinox", "Silverado", "Tahoe"],
+                                "Chrysler": ["300", "Pacifica"],
+                                "Dodge": ["Charger", "Challenger", "Durango"],
+                                "Ford": ["Focus", "Escape", "Mustang", "F-150", "Explorer"],
+                                "GMC": ["Terrain", "Acadia", "Yukon", "Sierra"],
+                                "Honda": ["Accord", "Odyssey", "CR-V", "Civic", "Pilot"],
+                                "Hyundai": ["Santa Fe", "Sonata", "Elantra", "Tucson"],
+                                "Jeep": ["Grand Cherokee", "Compass", "Cherokee", "Wrangler"],
+                                "Kia": ["Forte", "Optima", "Sportage", "Sorento", "Telluride"],
+                                "Land Rover": ["Discovery", "Defender", "Range Rover"],
+                                "Lexus": ["GX", "ES", "RX", "NX", "IS"],
+                                "Mazda": ["Mazda6", "CX-5", "Mazda3", "CX-9"],
+                                "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLE"],
+                                "Nissan": ["Altima", "Titan", "Pathfinder", "Sentra", "Rogue"],
+                                "Porsche": ["Panamera", "911", "Macan", "Cayenne"],
+                                "Ram": ["2500", "1500", "3500"],
+                                "Subaru": ["Crosstrek", "Impreza", "Outback", "Forester"],
+                                "Tesla": ["Model X", "Model Y", "Model S", "Model 3"],
+                                "Toyota": ["Camry", "RAV4", "Corolla", "Tacoma", "Highlander"],
+                                "Volkswagen": ["Jetta", "Passat", "Tiguan", "Golf", "Atlas"],
+                                "Volvo": ["V60", "S60", "XC60", "XC90"]
+                            };
 
-           <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Form-v9 by Colorlib</title>
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!-- Font-->
-	<link rel="stylesheet" type="text/css" href="static/css2/nunito-font.css">
-	<!-- Main Style Css -->
-    <link rel="stylesheet" href="static/css2/style.css"/>
-</head>
-<body class="form-v9">
-	<div class="page-content">
-		<div class="form-v9-content" style="background-image: url('static/assets/img/form-v9.jpg')">
-			<form class="form-detail" action="/predict" method="post">
-				<h2>Please Fill The Information</h2>
-				
-                
+                            const makeSelect = document.getElementById('make');
+                            const modelSelect = document.getElementById('model');
+
+                            makeSelect.addEventListener('change', function () {
+                                const selectedMake = this.value;
+                                const models = makeToModels[selectedMake] || [];
+
+                                // Clear existing options
+                                modelSelect.innerHTML = '<option value="">-- Select Model --</option>';
+
+                                // Add new model options
+                                models.forEach(function (model) {
+                                    const option = document.createElement('option');
+                                    option.value = model;
+                                    option.textContent = model;
+                                    modelSelect.appendChild(option);
+                                });
+
+                                // If no models available, disable the model dropdown
+                                modelSelect.disabled = models.length === 0;
+                            });
+                        </script>
+                    
                 
                 <div class="form-row-total">
 
                     <div class="form-row">
-                        <label for="make">Make:</label>
-                        <select name="make" id="make" class="input-text" required>
-                            <option value="">-- Select Make --</option>
-                            <option value="Ram">Ram</option>
-                            <option value="Porsche">Porsche</option>
-                            <option value="Audi">Audi</option>
-                            <option value="Ford">Ford</option>
-                            <option value="BMW">BMW</option>
-                            <option value="Dodge">Dodge</option>
-                            <option value="Acura">Acura</option>
-                            <option value="Nissan">Nissan</option>
-                            <option value="Volkswagen">Volkswagen</option>
-                            <option value="GMC">GMC</option>
-                            <option value="Jeep">Jeep</option>
-                            <option value="Hyundai">Hyundai</option>
-                            <option value="Kia">Kia</option>
-                            <option value="Land Rover">Land Rover</option>
-                            <option value="Mercedes-Benz">Mercedes-Benz</option>
-                            <option value="Tesla">Tesla</option>
-                            <option value="Chrysler">Chrysler</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Subaru">Subaru</option>
-                            <option value="Lexus">Lexus</option>
-                            <option value="Volvo">Volvo</option>
-                            <option value="Honda">Honda</option>
-                            <option value="Mazda">Mazda</option>
-                            <option value="Cadillac">Cadillac</option>
-                            <option value="Chevrolet">Chevrolet</option>
-                        </select>
-                    </div>
-
-                    
-                    <div class="form-row">
-                        <label for="model">Model:</label>
-                        <select name="model" id="model" class="input-text" required>
-                            <option value="">-- Select Model --</option>
-                        </select>
-                    </div>
-
-                    <!-- JavaScript to Filter Models Based on Make -->
-                    <script>
-                        const makeToModels = {
-                            "Acura": ["MDX", "RDX", "TLX", "Integra"],
-                            "Audi": ["A4", "Q7", "R8", "Q5", "A6"],
-                            "BMW": ["5 Series", "3 Series", "M3", "X5", "X3"],
-                            "Cadillac": ["CT5", "XT5", "Lyriq", "Escalade"],
-                            "Chevrolet": ["Camaro", "Malibu", "Equinox", "Silverado", "Tahoe"],
-                            "Chrysler": ["300", "Pacifica"],
-                            "Dodge": ["Charger", "Challenger", "Durango"],
-                            "Ford": ["Focus", "Escape", "Mustang", "F-150", "Explorer"],
-                            "GMC": ["Terrain", "Acadia", "Yukon", "Sierra"],
-                            "Honda": ["Accord", "Odyssey", "CR-V", "Civic", "Pilot"],
-                            "Hyundai": ["Santa Fe", "Sonata", "Elantra", "Tucson"],
-                            "Jeep": ["Grand Cherokee", "Compass", "Cherokee", "Wrangler"],
-                            "Kia": ["Forte", "Optima", "Sportage", "Sorento", "Telluride"],
-                            "Land Rover": ["Discovery", "Defender", "Range Rover"],
-                            "Lexus": ["GX", "ES", "RX", "NX", "IS"],
-                            "Mazda": ["Mazda6", "CX-5", "Mazda3", "CX-9"],
-                            "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLE"],
-                            "Nissan": ["Altima", "Titan", "Pathfinder", "Sentra", "Rogue"],
-                            "Porsche": ["Panamera", "911", "Macan", "Cayenne"],
-                            "Ram": ["2500", "1500", "3500"],
-                            "Subaru": ["Crosstrek", "Impreza", "Outback", "Forester"],
-                            "Tesla": ["Model X", "Model Y", "Model S", "Model 3"],
-                            "Toyota": ["Camry", "RAV4", "Corolla", "Tacoma", "Highlander"],
-                            "Volkswagen": ["Jetta", "Passat", "Tiguan", "Golf", "Atlas"],
-                            "Volvo": ["V60", "S60", "XC60", "XC90"]
-                        };
-
-                        const makeSelect = document.getElementById('make');
-                        const modelSelect = document.getElementById('model');
-
-                        makeSelect.addEventListener('change', function () {
-                            const selectedMake = this.value;
-                            const models = makeToModels[selectedMake] || [];
-
-                            // Clear existing options
-                            modelSelect.innerHTML = '<option value="">-- Select Model --</option>';
-
-                            // Add new model options
-                            models.forEach(function (model) {
-                                const option = document.createElement('option');
-                                option.value = model;
-                                option.textContent = model;
-                                modelSelect.appendChild(option);
-                            });
-
-                            // If no models available, disable the model dropdown
-                            modelSelect.disabled = models.length === 0;
-                        });
-                    </script>
-
-
-
-				<div class="form-row-total">
-
-                    <div class="form-row">
                         <label for="year"> Year:</label>
-						<input type="text" name="year" id="year" class="input-text" placeholder="year" required>
-					</div>
+                        <input type="text" name="year" id="year" class="input-text" placeholder="year" required>
+                    </div>
 
 
                     <div class="form-row">
                         <label for="mileage"> Mileage:</label>
-						<input type="text" name="mileage" id="mileage" class="input-text" placeholder="mileage" required>
-					</div>
+                        <input type="text" name="mileage" id="mileage" class="input-text" placeholder="mileage" required>
+                    </div>
 
-				</div>
+                </div>
 
 
                 <div class="form-row-total">
 
                     <div class="form-row">
                         <label for="engine_hp"> Engine_Hp:</label>
-						<input type="text" name="engine_hp" id="engine_hp" class="input-text" placeholder="engine_hp" required>
-					</div>
+                        <input type="text" name="engine_hp" id="engine_hp" class="input-text" placeholder="engine_hp" required>
+                    </div>
 
                     <div class="form-row">
                         <label for="transmission"> Transmission:</label>
-						<select name="transmission" id="transmission" class="input-text" required>
+                        <select name="transmission" id="transmission" class="input-text" required>
                             <option value="">-- Select Transmission --</option>
                             <option value="Automatic">Automatic</option>
                             <option value="Manual">Manual</option>
                         </select>
 
-					</div>
+                    </div>
 
-				</div>
-
-
-                <div class="form-row">
-                    <label for="fuel_type">Fuel Type:</label>
-                    <select name="fuel_type" id="fuel_type" class="input-text" required>
-                        <option value="">-- Select Fuel Type --</option>
-                        <option value="Electric">Electric</option>
-                        <option value="Gasoline">Gasoline</option>
-                        <option value="Diesel">Diesel</option>
-                    </select>
                 </div>
 
-                <div class="form-row">
-                    <label for="drivetrain">Drivetrain:</label>
-                    <select name="drivetrain" id="drivetrain" class="input-text" required>
-                        <option value="">-- Select Drivetrain --</option>
-                        <option value="AWD">AWD</option>
-                        <option value="RWD">RWD</option>
-                        <option value="FWD">FWD</option>
-                    </select>
-                </div>
 
+                <div class="form-row-total">
+                    <div class="form-row">
+                        <label for="fuel_type">Fuel Type:</label>
+                        <select name="fuel_type" id="fuel_type" class="input-text" required>
+                            <option value="">-- Select Fuel Type --</option>
+                            <option value="Electric">Electric</option>
+                            <option value="Gasoline">Gasoline</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+                    </div>
+                
+                </div>    
+
+                    <div class="form-row">
+                        <label for="drivetrain">Drivetrain:</label>
+                        <select name="drivetrain" id="drivetrain" class="input-text" required>
+                            <option value="">-- Select Drivetrain --</option>
+                            <option value="AWD">AWD</option>
+                            <option value="RWD">RWD</option>
+                            <option value="FWD">FWD</option>
+                        </select>
+                    </div>
+                    
 
                 <div class="form-row-total">
                     <div class="form-row">
@@ -239,9 +236,8 @@
                             <option value="Wagon">Wagon</option>
                             <option value="Hatchback">Hatchback</option>
                         </select>
-                    </div>
-
-
+                        </div>
+                        
 
                     <div class="form-row">
                         <label for="exterior_color">Exterior Color:</label>
@@ -254,9 +250,8 @@
                             <option value="Blue">Blue</option>
                             <option value="White">White</option>
                         </select>
+                        </div>
                     </div>
-
-				</div>
 
 
                 <div class="form-row-total">
@@ -270,23 +265,17 @@
                             <option value="Beige">Beige</option>
                             <option value="Black">Black</option>
                         </select>
+                        </div>
                     </div>
-				</div>
 
-
-                
-                <div class="form-row-total">
-
+                                  
                     <div class="form-row">
                         <label for="owner_count"> Owner Count:</label>
-						<input type="text" name="owner_count" id="owner_count" class="input-text" placeholder="owner_count" required>
-					</div>
-
-
-				                
+                        <input type="text" name="owner_count" id="owner_count" class="input-text" placeholder="owner_count" required>
+                        </div>
+                
+                                
                 <div class="form-row-total">
-
-                   
                     <div class="form-row">
                         <label for="accident_history">Accident History:</label>
                         <select name="accident_history" id="accident_history" class="input-text">
@@ -294,12 +283,11 @@
                             <option value="Minor">Minor</option>
                             <option value="Major">Major</option>
                         </select>
+                        </div>
                     </div>
-				</div>
 
                 
-                <div class="form-row-total">
-
+                
                     <div class="form-row">
                         <label for="seller_type">Seller Type:</label>
                         <select name="seller_type" id="seller_type" class="input-text" required>
@@ -308,24 +296,25 @@
                             <option value="Private">Private</option>
                         </select>
                     </div>
-				                
+                
+                    
                 <div class="form-row-total">
 
                     <div class="form-row">
                         <label for="condition"> Condition:</label>
-						<select name="condition" id="condition" class="input-text" required>
+                        <select name="condition" id="condition" class="input-text" required>
                             <option value="" disabled selected>Condition</option>
                             <option value="Good">Good</option>
                             <option value="Fair">Fair</option>
                             <option value="Excellent">Excellent</option>
-                       </select>
+                    </select>
                     </div>
-				</div>
+                </div>
 
 
                 
                 <div class="form-row-total">
-          
+        
                     <div class="form-row">
                         <label for="trim">Trim:</label>
                         <select name="trim" id="trim" class="input-text" required>
@@ -337,19 +326,19 @@
                             <option value="Base">Base</option>
                             <option value="Sport">Sport</option>
                         </select>
+                        </div>
                     </div>
-				
                 
-                <div class="form-row-total">
+                
+                    <div class="form-row-total">
 
-                    <div class="form-row">
-                        <label for="vehicle_age"> Vehicle Age:</label>
-						<input type="text" name="vehicle_age" id="vehicle_age" class="input-text" placeholder="vehicle_age" required>
-					</div>
+                        <div class="form-row">
+                            <label for="vehicle_age"> Vehicle Age:</label>
+                            <input type="text" name="vehicle_age" id="vehicle_age" class="input-text" placeholder="vehicle_age" required>
+                        </div>
 
 
-				</div>
-
+                    </div>
 
 
                 
@@ -357,74 +346,72 @@
 
                     <div class="form-row">
                         <label for="mileage_per_year"> Mileage Per Year:</label>
-						<input type="text" name="mileage_per_year" id="mileage_per_year" class="input-text" placeholder="mileage_per_year" required>
-					</div>
+                        <input type="text" name="mileage_per_year" id="mileage_per_year" class="input-text" placeholder="mileage_per_year" required>
+                    </div>
 
 
-				               
-                <div class="form-row-total">
-
+                            
                     <div class="form-row">
                         <label for="brand_popularity"> Brand Popularity:</label>
-						<input type="text" name="brand_popularity" id="brand_popularity" class="input-text" placeholder="brand_popularity" required>
-					</div>
+                        <input type="text" name="brand_popularity" id="brand_popularity" class="input-text" placeholder="brand_popularity" required>
+                    </div>
 
-				</div>
+                </div>
+    
 
 
-
-				<div class="form-row-last">
-					<input type="submit" name="register" class="register" value="Predict">
-				</div>
-			</form>
-		</div>
-	</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
-
+                    <div class="form-row-last">
+                        <input type="submit" name="register" class="register" value="Predict">
+                    </div>
+                </form>
+            </div>
         </div>
+    </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+    </html>
+
+            </div>
 
 
-        <!-- Footer-->
-        <footer class="border-top">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item">
-                                <a href="https://www.linkedin.com/in/adyaan.singh/">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://github.com/adyaan1989">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="small text-center text-muted fst-italic"></div>
-                        <div class="small text-center text-muted fst-italic"></div>
+            <!-- Footer-->
+            <footer class="border-top">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <ul class="list-inline text-center">
+                                <li class="list-inline-item">
+                                    <a href="https://www.linkedin.com/in/adyaan.singh/">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://github.com/adyaan1989">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fas fa-circle fa-stack-2x"></i>
+                                            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="small text-center text-muted fst-italic"></div>
+                            <div class="small text-center text-muted fst-italic"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="static/js/scripts.js"></script>
-    </body>
-</html>
+            </footer>
+            <!-- Bootstrap core JS-->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Core theme JS-->
+            <script src="static/js/scripts.js"></script>
+        </body>
+    </html>
